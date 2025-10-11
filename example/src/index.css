@@ -86,14 +86,16 @@ p {
 }
 
 /* section 3 */
-/* section 2 */
-.section--3 {
+/* section 4 */
+.section--3,
+.section--4 {
   display: flex;
   align-items: center;
   flex-direction: column;
   justify-content: center;
 }
-.section--3 .container {
+.section--3 .container,
+.section--4 .container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -102,7 +104,8 @@ p {
 }
 
 @media screen and (max-width: 767px) {
-  .section--3 .container > div {
+  .section--3 .container > div,
+  .section--4 .container > div {
     width: 100% !important;
   }
 }

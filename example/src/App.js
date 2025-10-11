@@ -103,6 +103,47 @@ const App = () => {
           </div>
         </div>
       </div>
+
+      <div className='section section--4'>
+        <div className='container'>
+          <div style={{ width: 'calc(40% - 15px)' }}>
+            <LazyLoad animation='flip' delay='0.3'>
+              <img src={SampleImg} className='img' alt='img 1' />
+            </LazyLoad>
+          </div>
+
+          <div style={{ width: 'calc(60% - 15px)' }}>
+            <LazyLoad
+              animation='slideRight'
+              distance='200'
+              className='text-yellow'
+            >
+              <h2>Lorem ipsum dolor sit amet</h2>
+            </LazyLoad>
+            <br />
+            <LazyLoad animation='slideUp'>
+              <p className='text-white'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce
+                aliquam velit id gravida tempus. Integer quis ex magna. Etiam
+                vel volutpat nunc, quis mollis nibh. Nulla dignissim, ipsum sit
+                amet vulputate vehicula, turpis mauris malesuada lacus, nec
+                pulvinar enim nisl sit amet ex. Cras eu sagittis ligula. Sed nec
+                tempor est.
+              </p>
+
+              <p className='text-white'>
+                Integer condimentum nibh id nunc mattis pulvinar. Nam sit amet
+                efficitur quam. Nulla ut sapien vel neque auctor tempor sit amet
+                eu risus. Ut sed ipsum sit amet nisi tristique accumsan. Sed id
+                sapien ut erat tincidunt aliquam. Aenean vitae nisi vitae metus
+                tempor sodales. Vestibulum ante ipsum primis in faucibus orci
+                luctus et ultrices posuere cubilia curae; Nullam suscipit dolor
+                finibus fermentum pulvinar.
+              </p>
+            </LazyLoad>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
