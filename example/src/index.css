@@ -12,3 +12,97 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.container {
+  width: 100%;
+  max-width: 1200px;
+  padding-inline: 15px;
+  box-sizing: border-box;
+  margin-inline: auto;
+}
+
+/* sections */
+:root {
+  --white: #fff2ef;
+  --blue: #5d688a;
+  --yellow: #ffdbb6;
+}
+.section {
+  width: 100%;
+  min-height: 100vh;
+  box-sizing: border-box;
+  padding: 90px 15px;
+  background: var(--white);
+}
+.section:nth-child(even) {
+  background: var(--blue);
+}
+.center {
+  text-align: center;
+}
+.text-blue {
+  color: var(--blue);
+}
+.text-white {
+  color: var(--white);
+}
+.text-yellow {
+  color: var(--yellow);
+}
+.img {
+  width: 100%;
+  border-radius: 15px;
+}
+h1,
+h2 {
+  margin-bottom: 5px;
+}
+p {
+  margin-top: 0;
+}
+
+/* section 1 */
+.section--1 {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.img--1 {
+  max-width: 600px;
+}
+
+/* section 2 */
+.section--2 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.section--2 .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 15px;
+}
+
+/* section 3 */
+/* section 2 */
+.section--3 {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+.section--3 .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+@media screen and (max-width: 767px) {
+  .section--3 .container > div {
+    width: 100% !important;
+  }
+}

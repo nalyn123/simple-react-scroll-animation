@@ -1,6 +1,17 @@
 import React from 'react'
-import styles from './styles.module.css'
+import { useLazyLoad } from './index-model'
+import { classNames } from './utils/enum'
 
-export const ExampleComponent = ({ text }) => {
-  return <div className={styles.test}>Example Component: {text}</div>
+export const LazyLoad = ({ children, ...props }) => {
+  const { ref, className, css } = useLazyLoad(props)
+
+  return (
+    <div
+      ref={ref}
+      className={`${classNames.DEFAULT} ${className} ${props?.className}`}
+      style={css}
+    >
+      {children}
+    </div>
+  )
 }
