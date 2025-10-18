@@ -25,7 +25,7 @@ export const useLazyLoad = (props) => {
       rootMargin: '0px',
       threshold: 0.1
     }
-    const observer = new IntersectionObserver((entries) => {
+    const observer = new IntersectionObserver(async (entries) => {
       entries.forEach((entry) => {
         const target = entry?.target
 
@@ -33,14 +33,16 @@ export const useLazyLoad = (props) => {
         if (entry?.isIntersecting) {
           visibility.current = true
 
-          setCSS((prev) => ({
-            ...prev,
-            display: 'block'
-          }))
-
-          setTimeout(() => {
-            setClassName(`${classNames.DEFAULT}--${animation || 'fadeIn'}`)
-          }, 100)
+          const child = ref?.current?.children?.[0]
+          if (child?.nodeName === 'IMG') {
+            const img = new Image()
+            img.src = child?.src
+            img.onload = () => {
+              doAnimation()
+            }
+          } else {
+            doAnimation()
+          }
         } else {
           setClassName('')
         }
@@ -48,6 +50,17 @@ export const useLazyLoad = (props) => {
     }, option)
 
     observer.observe(ref?.current)
+  }
+
+  const doAnimation = () => {
+    setCSS((prev) => ({
+      ...prev,
+      display: 'block'
+    }))
+
+    setTimeout(() => {
+      setClassName(`${classNames.DEFAULT}--${animation || 'fadeIn'}`)
+    }, 100)
   }
   return { ref, className, css }
 }
