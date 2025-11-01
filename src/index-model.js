@@ -12,9 +12,12 @@ export const useLazyLoad = (props) => {
   const visibility = useRef(false)
 
   useEffect(() => {
-    window.addEventListener('load', init)
-
-    return () => window.removeEventListener('load', init)
+    if (document.readyState === 'complete') {
+      init()
+    } else {
+      window.addEventListener('load', init)
+      return () => window.removeEventListener('load', init)
+    }
   }, [])
 
   const init = () => {
