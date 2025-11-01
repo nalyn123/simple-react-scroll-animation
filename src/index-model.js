@@ -21,7 +21,6 @@ export const useLazyLoad = (props) => {
   }, [])
 
   const init = () => {
-    console.log('test')
     if (!ref?.current) return
 
     const option = {
